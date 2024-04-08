@@ -4,12 +4,15 @@
 #include <fstream>
 using namespace std;
 
-userAccount::userAccount(string user, string pass, string accountType, int accountNumber, float balance) {
+userAccount::userAccount() {
+
+}
+
+userAccount::userAccount(string user, string pass, string accountType, int accountNumber) {
 	userName = user;
 	password = pass;
 	this->accountNumber = accountNumber;
 	this->accountType = accountType;
-	this->balance = balance;
 }
 
 userAccount::~userAccount() {

@@ -5,7 +5,8 @@ using namespace std;
 class userAccount
 {
 public:
-	userAccount(string user, string pass, string accountType, int accountNumber, float balance);
+	userAccount(string user, string pass, string accountType, int accountNumber);
+	userAccount();
 	~userAccount();
 	string getUsername();
 	string getPassword();
