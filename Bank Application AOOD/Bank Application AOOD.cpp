@@ -41,14 +41,19 @@ void main() {
 	}
 	cout << "Welcome!" << endl;
 	cout << "Number of accounts in the system: " << accounts << endl;
-	
+
 	switch (printLoginOptions()) {
 	case 1:
 		system("cls");
 		getLogin();
+		break;
 	case 2:
 		system("cls");
 		createAccountDialog();
+		break;
+	default:
+		cout << "Invalid selection" << endl;
+		break;
 	}
 
 }
@@ -61,11 +66,11 @@ void createAccountDialog() {
 	cin >> user;
 	cout << "Password: ";
 	cin >> pass;
-	
+
 	//Reads file and compares every 5th line to the username
-	
+
 	bool exists = userExists(user, pass, "create");
-	if (!exists &&  user != "" && pass != "") {
+	if (!exists && user != "" && pass != "") {
 		//Creates new account
 		createAccount(user, pass, "customer", accounts + 1);
 		userAccount* ua = userLogin(user, pass);
@@ -93,19 +98,19 @@ void getLogin() {
 	cin >> user;
 	cout << "Password: ";
 	cin >> pass;
+
 	if (userExists(user, pass, "login")) {
-		if (userLogin(user, pass) != nullptr) {
-			//Clears console and prints choices
-			system("cls");
-			printUserChoices(userLogin(user, pass));
-		}
-		else {
-			//Clears console and prompts new input
-			system("cls");
-			cout << "Incorrect username or password!" << endl;
-			getLogin();
-		}
+		//Clears console and prints choices
+		system("cls");
+		printUserChoices(userLogin(user, pass));
 	}
+	else {
+		//Clears console and prompts new input
+		system("cls");
+		cout << "Incorrect username or password!" << endl;
+		getLogin();
+	}
+
 }
 
 void printUserChoices(userAccount* ua) {
@@ -117,7 +122,7 @@ void printUserChoices(userAccount* ua) {
 	cout << "4. Balance" << endl;
 	int selected;
 	cin >> selected;
-	
+
 
 }
 
@@ -133,7 +138,7 @@ userAccount* userLogin(string username, string password) {
 			}
 			if (curLine == password) {
 				//Loads user information
-				return loadInformation(username,password);
+				return loadInformation(username, password);
 			}
 		}
 
@@ -143,7 +148,7 @@ userAccount* userLogin(string username, string password) {
 		cout << "Could not read users.txt" << endl;
 	}
 	return NULL;
-	
+
 }
 
 int printLoginOptions() {
@@ -204,14 +209,14 @@ userAccount* loadInformation(string username, string password)
 	else {
 		cout << "Could not read users.txt!" << endl;
 	}
-	return nullptr;	
+	return nullptr;
 
 }
 
 void deleteAccount(userAccount ua) {
 	//array to hold lines to ignore
-	string userLines[4] = {ua.getUsername(), 
-		ua.getPassword(), ua.getAccountType(), to_string(ua.getAccountNumber())};
+	string userLines[4] = { ua.getUsername(),
+		ua.getPassword(), ua.getAccountType(), to_string(ua.getAccountNumber()) };
 	string curLine;
 	//creates temporary file, ignoring any lines found in userLines array
 	ifstream inputFile("users.txt");
@@ -259,6 +264,7 @@ bool userExists(string user, string pass, string mode) {
 				i = 0;
 			}
 			else if (i == 0) {
+				//If on the username line
 				//cout << curLine << endl;
 				if (curLine == user) {
 					//If in login mode, checks password

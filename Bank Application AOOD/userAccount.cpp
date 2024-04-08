@@ -13,6 +13,7 @@ userAccount::userAccount(string user, string pass, string accountType, int accou
 	password = pass;
 	this->accountNumber = accountNumber;
 	this->accountType = accountType;
+	balance = 0;
 }
 
 userAccount::~userAccount() {
@@ -37,4 +38,33 @@ int userAccount::getAccountNumber() {
 
 float userAccount::getBalance() {
 	return balance;
+}
+
+void userAccount::PrintAccountSummary() {
+	//creates or reads text file
+	string fileName = userName + ".txt";
+	ifstream inputFile(fileName);
+	string curLine;
+	int index = 0;
+	getline(inputFile, curLine);
+	do {
+		if (curLine != "") {
+			cout << curLine << endl;
+			index++;
+		}
+		else {
+			if (index == 0) {
+				//if first line still
+				cout << "No account summary available!" << endl;
+			}
+		}
+	} while (getline(inputFile, curLine));
+	cout << "Balance: $" << getBalance() << endl;
+}
+
+void userAccount::Deposit(int amount) {
+
+}
+void userAccount::Withdraw(int amount) {
+
 }

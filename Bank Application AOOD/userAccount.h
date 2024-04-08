@@ -13,6 +13,9 @@ public:
 	string getAccountType();
 	int getAccountNumber();
 	float getBalance();
+	void PrintAccountSummary();
+	void Deposit(int amount);
+	void Withdraw(int amount);
 	
 private:
 	string userName;
