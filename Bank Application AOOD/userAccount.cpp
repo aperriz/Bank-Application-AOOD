@@ -63,8 +63,49 @@ void userAccount::PrintAccountSummary() {
 }
 
 void userAccount::Deposit(int amount) {
+	string fileName = userName + ".txt";
+	ifstream inputFile(fileName);
+	string curLine;
+	int index = 0;
+	int balance = 0;
 
+	getline(inputFile, curLine);
+	do {
+		if (curLine != "") {
+			cout << curLine << endl;
+			index++;
+		}
+		int balance = stoi(curLine);
+	} while (getline(inputFile, curLine));
+	ofstream outputFile(fileName, ofstream::app);
+	if (outputFile.is_open()) {
+		outputFile << amount << endl;
+		outputFile << balance + amount << endl;
+	}
 }
 void userAccount::Withdraw(int amount) {
+	string fileName = userName + ".txt";
+	ifstream inputFile(fileName);
+	string curLine;
+	int index = 0;
+	int balance = 0;
 
+	getline(inputFile, curLine);
+	do {
+		if (curLine != "") {
+			cout << curLine << endl;
+			index++;
+		}
+		int balance = stoi(curLine);
+	} while (getline(inputFile, curLine));
+	if (balance >= amount) {
+		ofstream outputFile(fileName, ofstream::app);
+		if (outputFile.is_open()) {
+			outputFile << "-" + amount << endl;
+			outputFile << balance - amount << endl;
+		}
+	}
+	else {
+		cout << "Error: insufficient funds" << endl;
+	}
 }
