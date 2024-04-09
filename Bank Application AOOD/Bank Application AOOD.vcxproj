@@ -127,11 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="account.cpp" />
     <ClCompile Include="Bank Application AOOD.cpp" />
+    <ClCompile Include="helperMethods.cpp" />
     <ClCompile Include="managerAccount.cpp" />
     <ClCompile Include="userAccount.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="account.h" />
     <ClInclude Include="managerAccount.h" />
     <ClInclude Include="userAccount.h" />
   </ItemGroup>
