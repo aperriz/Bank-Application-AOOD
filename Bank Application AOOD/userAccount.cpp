@@ -45,11 +45,13 @@ void userAccount::PrintAccountSummary() {
 	string fileName = userName + ".txt";
 	ifstream inputFile(fileName);
 	string curLine;
+	string temp;
 	int index = 0;
 	getline(inputFile, curLine);
 	do {
 		if (curLine != "") {
 			cout << curLine << endl;
+			temp = curLine;
 			index++;
 		}
 		else {
@@ -59,53 +61,91 @@ void userAccount::PrintAccountSummary() {
 			}
 		}
 	} while (getline(inputFile, curLine));
-	cout << "Balance: $" << getBalance() << endl;
+	cout << "Balance: $" << temp << endl;
 }
 
 void userAccount::Deposit(int amount) {
 	string fileName = userName + ".txt";
 	ifstream inputFile(fileName);
 	string curLine;
+	string temp;
+
+
 	int index = 0;
 	int balance = 0;
+
 
 	getline(inputFile, curLine);
 	do {
 		if (curLine != "") {
-			cout << curLine << endl;
 			index++;
 		}
-		int balance = stoi(curLine);
+		temp = curLine;
+
 	} while (getline(inputFile, curLine));
+
+	if (index > 0) {
+		balance = stoi(temp) + amount;
+
+	}
+	else {
+		balance = amount;
+	}
+
+	inputFile.close();
 	ofstream outputFile(fileName, ofstream::app);
 	if (outputFile.is_open()) {
-		outputFile << amount << endl;
-		outputFile << balance + amount << endl;
+
+
+		outputFile << "+" << amount << endl;
+		outputFile << balance << endl;
+
 	}
+
+	outputFile.close();
 }
+
 void userAccount::Withdraw(int amount) {
 	string fileName = userName + ".txt";
 	ifstream inputFile(fileName);
 	string curLine;
+	string temp;
+
+
 	int index = 0;
 	int balance = 0;
+
 
 	getline(inputFile, curLine);
 	do {
 		if (curLine != "") {
-			cout << curLine << endl;
 			index++;
 		}
-		int balance = stoi(curLine);
+		temp = curLine;
+
 	} while (getline(inputFile, curLine));
+
+	if (index > 0) {
+		balance = stoi(temp);
+
+	}
 	if (balance >= amount) {
+		balance = balance - amount;
+		inputFile.close();
+
 		ofstream outputFile(fileName, ofstream::app);
 		if (outputFile.is_open()) {
-			outputFile << "-" + amount << endl;
-			outputFile << balance - amount << endl;
+
+
+			outputFile << "-" << amount << endl;
+			outputFile << balance << endl;
+
 		}
+
+		outputFile.close();
 	}
 	else {
-		cout << "Error: insufficient funds" << endl;
+		cout << "Error insuffiecent funds" << endl;
 	}
 }
+

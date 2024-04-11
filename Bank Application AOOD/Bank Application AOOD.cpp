@@ -119,9 +119,35 @@ void printUserChoices(userAccount* ua) {
 	cout << "1. Print Account Summary" << endl;
 	cout << "2. Withdraw" << endl;
 	cout << "3. Deposit" << endl;
-	cout << "4. Balance" << endl;
+
 	int selected;
 	cin >> selected;
+	switch (selected) {
+	case 1:
+		system("cls");
+		ua->PrintAccountSummary();
+		printUserChoices(ua);
+		break;
+	case 2:
+		system("cls");
+		cout << "How much would you like to withdraw";
+		int amount;
+		cin >> amount;
+		ua->Withdraw(amount);
+		printUserChoices(ua);
+		break;
+	case 3:
+		system("cls");
+		cout << "How much would you like to deposit" << endl;
+		cin >> amount;
+		ua->Deposit(amount);
+		printUserChoices(ua);
+		break;
+
+	default:
+		cout << "Invalid selection" << endl;
+		break;
+	}
 
 
 }
