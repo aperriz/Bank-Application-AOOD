@@ -18,6 +18,7 @@ bool helperMethods::userExists(string user, string pass, string mode) {
 			else if (i == 0) {
 				//If on the username line
 				//cout << curLine << endl;
+				
 				if (curLine == user) {
 					//If in login mode, checks password
 					if (mode == "login") {
@@ -47,7 +48,51 @@ bool helperMethods::userExists(string user, string pass, string mode) {
 	}
 	return false;
 }
-
+bool helperMethods::managerExists(string user, string pass, string mode) {
+	//Checks and returns if user exists
+	ifstream inputFile("manager.txt");
+	string curLine;
+	if (inputFile.is_open()) {
+		int i = 0;
+		while (getline(inputFile, curLine)) {
+			if (i == 3) {
+				i = 0;
+				
+			}
+			else if (i == 0) {
+				
+				//If on the username line
+				//cout << curLine << endl;
+				if (curLine == user) {
+					//If in login mode, checks password
+					if (mode == "login") {
+						getline(inputFile, curLine);
+						if (curLine == pass) {
+							return true;
+						}
+						else {
+							cout << "Incorrect password!" << endl;
+							return false;
+						}
+					}
+					else {
+						
+						return true;
+					}
+				}
+				i++;
+			}
+			else {
+				i++;
+			}
+		}
+	}
+	inputFile.close();
+	if (mode == "login") {
+		cout << "Manager " << user << " does not exist!" << endl;
+	}
+	return false;
+}
 void helperMethods::deleteAccount(userAccount ua) {
 	//array to hold lines to ignore
 	string userLines[4] = { ua.getUsername(),

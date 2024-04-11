@@ -13,6 +13,7 @@ void getLogin();
 void logOut();
 int printLoginOptions();
 void createAccountDialog();
+void createMangagerDialog();
 userAccount* loggedInAccount;
 
 static int accounts = 0;
@@ -49,6 +50,10 @@ void main() {
 		system("cls");
 		createAccountDialog();
 		break;
+	case 3:
+		system("cls");
+		createMangagerDialog();
+		break;
 	default:
 		cout << "Invalid selection" << endl;
 		break;
@@ -80,7 +85,25 @@ void createAccountDialog() {
 	}
 
 }
+void createMangagerDialog() {
+	string user, pass;
+	cout << "Username: ";
+	cin >> user;
+	cout << "Password: ";
+	cin >> pass;
 
+	if (helperMethods::managerExists(user, pass, "login")) {
+		//Clears console and prints choices
+		system("cls");
+		//printUserChoices(userLogin(user, pass));
+	}
+	else {
+		//Clears console and prompts new input
+		//system("cls");
+		cout << "Incorrect username or password!" << endl;
+		createMangagerDialog();
+	}
+}
 void static createAccount(string username, string password, string accountType, int accountNumber) {
 	userAccount* ua = new userAccount(username, password, accountType, accountNumber);
 	//Attempts to write user to file. If works, prints user created
