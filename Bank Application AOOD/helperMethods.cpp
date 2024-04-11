@@ -2,14 +2,10 @@
 #include <iostream>
 #include <fstream>
 #include "userAccount.h"
+#include "helperMethods.h"
 using namespace std;
 
-void deleteAccount(userAccount ua);
-bool writeFile(userAccount ua);
-bool userExists(string user, string pass, string mode);
-userAccount* loadInformation(string username, string password);
-
-bool userExists(string user, string pass, string mode) {
+bool helperMethods::userExists(string user, string pass, string mode) {
 	//Checks and returns if user exists
 	ifstream inputFile("users.txt");
 	string curLine;
@@ -52,7 +48,7 @@ bool userExists(string user, string pass, string mode) {
 	return false;
 }
 
-void deleteAccount(userAccount ua) {
+void helperMethods::deleteAccount(userAccount ua) {
 	//array to hold lines to ignore
 	string userLines[4] = { ua.getUsername(),
 		ua.getPassword(), ua.getAccountType(), to_string(ua.getAccountNumber()) };
@@ -92,7 +88,7 @@ void deleteAccount(userAccount ua) {
 	remove("temp.txt");
 }
 
-bool writeFile(userAccount ua) {
+bool helperMethods::writeFile(userAccount ua) {
 	ofstream outputFile("users.txt", ios::app);
 	//Checks if file is open
 	if (outputFile.is_open()) {
@@ -111,7 +107,7 @@ bool writeFile(userAccount ua) {
 	return false;
 }
 
-userAccount* loadInformation(string username, string password)
+userAccount* helperMethods::loadInformation(string username, string password)
 {
 	ifstream inputFile("users.txt");
 	string curLine;

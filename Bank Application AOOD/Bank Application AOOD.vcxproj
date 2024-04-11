@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
+    <ClInclude Include="helperMethods.h" />
     <ClInclude Include="managerAccount.h" />
     <ClInclude Include="userAccount.h" />
   </ItemGroup>

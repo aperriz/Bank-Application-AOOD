@@ -1,14 +1,4 @@
 ﻿  Bank Application AOOD.cpp
-C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\helperMethods.cpp(77,2): warning C4156: deletion of an array expression without using the array form of 'delete'; array form substituted
-  (compiling source file 'Bank%20Application%20AOOD.cpp')
-  
-C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\helperMethods.cpp(77,2): warning C4154: deletion of an array expression; conversion to pointer supplied
-  (compiling source file 'Bank%20Application%20AOOD.cpp')
-  
 C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\Bank Application AOOD.cpp(19,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-helperMethods.obj : error LNK2005: "void __cdecl deleteAccount(class userAccount)" (?deleteAccount@@YAXVuserAccount@@@Z) already defined in Bank Application AOOD.obj
-helperMethods.obj : error LNK2005: "class userAccount * __cdecl loadInformation(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?loadInformation@@YAPEAVuserAccount@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z) already defined in Bank Application AOOD.obj
-helperMethods.obj : error LNK2005: "bool __cdecl userExists(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?userExists@@YA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00@Z) already defined in Bank Application AOOD.obj
-helperMethods.obj : error LNK2005: "bool __cdecl writeFile(class userAccount)" (?writeFile@@YA_NVuserAccount@@@Z) already defined in Bank Application AOOD.obj
-Bank Application AOOD.obj : error LNK2019: unresolved external symbol "class userAccount * __cdecl userLogin(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?userLogin@@YAPEAVuserAccount@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z) referenced in function "void __cdecl createAccountDialog(void)" (?createAccountDialog@@YAXXZ)
-C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe : fatal error LNK1120: 1 unresolved externals
+C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\Bank Application AOOD.cpp(165,15): warning C4101: 'tempUA': unreferenced local variable
+  Bank Application AOOD.vcxproj -> C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe

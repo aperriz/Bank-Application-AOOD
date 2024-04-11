@@ -3,11 +3,11 @@
 #include <fstream>
 #include "managerAccount.h"
 #include "userAccount.h"
-#include "helperMethods.cpp"
+#include "helperMethods.h"
 using namespace std;
 
-void static createAccount(string username, string password, string accountType, int accountNumber);
 userAccount* userLogin(string username, string password);
+void static createAccount(string username, string password, string accountType, int accountNumber);
 void printUserChoices(userAccount* ua);
 void getLogin();
 int printLoginOptions();
@@ -66,7 +66,7 @@ void createAccountDialog() {
 
 	//Reads file and compares every 5th line to the username
 
-	bool exists = userExists(user, pass, "create");
+	bool exists = helperMethods::userExists(user, pass, "create");
 	if (!exists && user != "" && pass != "") {
 		//Creates new account
 		createAccount(user, pass, "customer", accounts + 1);
@@ -83,7 +83,7 @@ void createAccountDialog() {
 void static createAccount(string username, string password, string accountType, int accountNumber) {
 	userAccount* ua = new userAccount(username, password, accountType, accountNumber);
 	//Attempts to write user to file. If works, prints user created
-	if (writeFile(*ua)) {
+	if (helperMethods::writeFile(*ua)) {
 		cout << "User created!" << endl;
 		accounts++;
 	}
@@ -96,7 +96,7 @@ void getLogin() {
 	cout << "Password: ";
 	cin >> pass;
 
-	if (userExists(user, pass, "login")) {
+	if (helperMethods::userExists(user, pass, "login")) {
 		//Clears console and prints choices
 		system("cls");
 		printUserChoices(userLogin(user, pass));
@@ -157,4 +157,29 @@ int printLoginOptions() {
 	cout << "3. Manager Login" << endl;
 	cin >> choice;
 	return choice;
+}
+
+userAccount* userLogin(string username, string password) {
+	ifstream inputFile("users.txt");
+	string curLine;
+	userAccount* tempUA;
+	//reads file looking for username
+	if (inputFile.is_open()) {
+		while (getline(inputFile, curLine)) {
+			if (curLine == username) {
+				getline(inputFile, curLine);
+			}
+			if (curLine == password) {
+				//Loads user information
+				return helperMethods::loadInformation(username, password);
+			}
+		}
+
+		cout << "User not found!" << endl;
+	}
+	else {
+		cout << "Could not read users.txt" << endl;
+	}
+	return NULL;
+
 }
