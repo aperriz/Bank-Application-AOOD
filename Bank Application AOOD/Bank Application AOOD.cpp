@@ -8,7 +8,6 @@ using namespace std;
 
 void static createAccount(string username, string password, string accountType, int accountNumber);
 userAccount* userLogin(string username, string password);
-void deleteAccount(userAccount ua);
 void printUserChoices(userAccount* ua);
 void getLogin();
 int printLoginOptions();
@@ -147,31 +146,6 @@ void printUserChoices(userAccount* ua) {
 		break;
 	}
 
-
-}
-
-userAccount* userLogin(string username, string password) {
-	ifstream inputFile("users.txt");
-	string curLine;
-	userAccount* tempUA;
-	//reads file looking for username
-	if (inputFile.is_open()) {
-		while (getline(inputFile, curLine)) {
-			if (curLine == username) {
-				getline(inputFile, curLine);
-			}
-			if (curLine == password) {
-				//Loads user information
-				return loadInformation(username, password);
-			}
-		}
-
-		cout << "User not found!" << endl;
-	}
-	else {
-		cout << "Could not read users.txt" << endl;
-	}
-	return NULL;
 
 }
 
