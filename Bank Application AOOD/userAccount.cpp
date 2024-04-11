@@ -61,7 +61,13 @@ void userAccount::PrintAccountSummary() {
 			}
 		}
 	} while (getline(inputFile, curLine));
-	cout << "Balance: $" << temp << endl;
+	if (index != 0) {
+		cout << "Balance: $" << temp << endl;
+	}
+	cout << "Enter any key to return" << endl;
+	string tString;
+	cin >> tString;
+	system("cls");
 }
 
 void userAccount::Deposit(int amount) {
@@ -136,7 +142,6 @@ void userAccount::Withdraw(int amount) {
 		ofstream outputFile(fileName, ofstream::app);
 		if (outputFile.is_open()) {
 
-
 			outputFile << "-" << amount << endl;
 			outputFile << balance << endl;
 
@@ -145,7 +150,11 @@ void userAccount::Withdraw(int amount) {
 		outputFile.close();
 	}
 	else {
-		cout << "Error insuffiecent funds" << endl;
+		cout << "Error insufficient funds" << endl;
 	}
+	string tString;
+	cout << "Enter any key to continue..." << endl;
+	cin >> tString;
+	system("cls");
 }
 

@@ -5,7 +5,7 @@
 using namespace std;
 class account
 {
-private:
+protected:
 	int accountNumber;
 	string accountType;
 	string userName;

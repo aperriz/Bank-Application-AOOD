@@ -1,4 +1,1 @@
-﻿  Bank Application AOOD.cpp
-C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\Bank Application AOOD.cpp(19,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\Bank Application AOOD.cpp(165,15): warning C4101: 'tempUA': unreferenced local variable
-  Bank Application AOOD.vcxproj -> C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe
+﻿  Bank Application AOOD.vcxproj -> C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe

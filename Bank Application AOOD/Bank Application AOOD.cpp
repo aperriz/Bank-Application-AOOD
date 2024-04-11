@@ -10,9 +10,10 @@ userAccount* userLogin(string username, string password);
 void static createAccount(string username, string password, string accountType, int accountNumber);
 void printUserChoices(userAccount* ua);
 void getLogin();
+void logOut();
 int printLoginOptions();
 void createAccountDialog();
-userAccount loggedInAccount;
+userAccount* loggedInAccount;
 
 static int accounts = 0;
 
@@ -116,6 +117,7 @@ void printUserChoices(userAccount* ua) {
 	cout << "1. Print Account Summary" << endl;
 	cout << "2. Withdraw" << endl;
 	cout << "3. Deposit" << endl;
+	cout << "4. Log out" << endl;
 
 	int selected;
 	cin >> selected;
@@ -127,7 +129,7 @@ void printUserChoices(userAccount* ua) {
 		break;
 	case 2:
 		system("cls");
-		cout << "How much would you like to withdraw";
+		cout << "How much would you like to withdraw?" << endl;
 		int amount;
 		cin >> amount;
 		ua->Withdraw(amount);
@@ -135,10 +137,14 @@ void printUserChoices(userAccount* ua) {
 		break;
 	case 3:
 		system("cls");
-		cout << "How much would you like to deposit" << endl;
+		cout << "How much would you like to deposit?" << endl;
 		cin >> amount;
 		ua->Deposit(amount);
+		system("cls");
 		printUserChoices(ua);
+		break;
+	case 4:
+		logOut();
 		break;
 
 	default:
@@ -157,6 +163,27 @@ int printLoginOptions() {
 	cout << "3. Manager Login" << endl;
 	cin >> choice;
 	return choice;
+}
+
+void logOut() {
+	delete loggedInAccount;
+	system("cls");
+	cout << "Welcome!" << endl;
+	cout << "Number of accounts in the system: " << accounts << endl;
+
+	switch (printLoginOptions()) {
+	case 1:
+		system("cls");
+		getLogin();
+		break;
+	case 2:
+		system("cls");
+		createAccountDialog();
+		break;
+	default:
+		cout << "Invalid selection" << endl;
+		break;
+	}
 }
 
 userAccount* userLogin(string username, string password) {

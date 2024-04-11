@@ -1,8 +1,9 @@
 #include <string>
+#include "account.h"
 #pragma once
 using namespace std;
 
-class userAccount
+class userAccount : account
 {
 public:
 	userAccount(string user, string pass, string accountType, int accountNumber);
@@ -18,10 +19,6 @@ public:
 	void Withdraw(int amount);
 	
 private:
-	string userName;
-	string password;
-	int accountNumber;
-	string accountType;
 	float balance;
 	
 };
