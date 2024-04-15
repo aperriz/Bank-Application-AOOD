@@ -3,7 +3,11 @@
 #include <fstream>
 #include "userAccount.h"
 #include "helperMethods.h"
+#include "managerAccount.h"
+#include "MainClass.h"
 using namespace std;
+
+static void back();
 
 bool helperMethods::userExists(string user, string pass, string mode) {
 	//Checks and returns if user exists
@@ -50,14 +54,13 @@ bool helperMethods::userExists(string user, string pass, string mode) {
 }
 bool helperMethods::managerExists(string user, string pass, string mode) {
 	//Checks and returns if user exists
-	ifstream inputFile("manager.txt");
+	ifstream inputFile("managers.txt");
 	string curLine;
 	if (inputFile.is_open()) {
 		int i = 0;
 		while (getline(inputFile, curLine)) {
-			if (i == 3) {
+			if (i == 1) {
 				i = 0;
-				
 			}
 			else if (i == 0) {
 				
@@ -183,4 +186,41 @@ userAccount* helperMethods::loadInformation(string username, string password)
 	}
 	return nullptr;
 
+}
+
+void helperMethods::printManagerChoices(managerAccount* mgr) {
+	cout << "Please choose one of the following: " << endl;
+	cout << "1. Access User by Account Number" << endl;
+	cout << "2. Access User by Account Name" << endl;
+	cout << "3. Log out" << endl;
+	int selection;
+	cin >> selection;
+	string accName;
+
+	switch (selection) {
+	case 1:
+		cout << "Enter the account number:";
+		int accNum;
+		cin >> accNum;
+		mgr->getUserInformation(accNum);
+		break;
+	case 2:
+		cout << "Enter the account username:";
+		cin >> accName;
+		mgr->getUserInformation(accName);
+		break;
+	case 3:
+		back();
+		break;
+	default:
+		system("cls");
+		cout << "Invalid selection!" << endl;
+		printManagerChoices(mgr);
+		break;
+	}
+
+}
+
+static void back() {
+	MainClass::logOut();
 }

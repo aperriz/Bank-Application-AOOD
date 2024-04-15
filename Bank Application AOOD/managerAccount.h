@@ -1,12 +1,15 @@
 #pragma once
 #include "userAccount.h"
 class managerAccount :
-    public userAccount
+    public account
 {
 public:
     managerAccount();
     ~managerAccount();
-    void getUserInformation(string username);
-    void getUserInformation(int number);
+    userAccount* getUserInformation(string username);
+    userAccount* getUserInformation(int number);
+    void managerPrintUserChoices(userAccount* ua);
+private:
+    void back();
 };
 
