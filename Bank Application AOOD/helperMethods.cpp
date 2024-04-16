@@ -22,7 +22,7 @@ bool helperMethods::userExists(string user, string pass, string mode) {
 			else if (i == 0) {
 				//If on the username line
 				//cout << curLine << endl;
-				
+
 				if (curLine == user) {
 					//If in login mode, checks password
 					if (mode == "login") {
@@ -52,6 +52,40 @@ bool helperMethods::userExists(string user, string pass, string mode) {
 	}
 	return false;
 }
+
+bool helperMethods::userExists(int accountNum) {
+	//Checks and returns if user exists
+	ifstream inputFile("users.txt");
+	string curLine;
+	if (inputFile.is_open()) {
+		int i = 0;
+		while (getline(inputFile, curLine)) {
+			if (i == 3) {
+				int an = 0;
+				try {
+					an = stoi(curLine);
+				}
+				catch (exception e) {
+
+				}
+
+				if (an == accountNum) {
+					return true;
+				}
+
+				i = 0;
+			}
+			else {
+				i++;
+			}
+		}
+	}
+	inputFile.close();
+
+	return false;
+}
+
+
 bool helperMethods::managerExists(string user, string pass, string mode) {
 	//Checks and returns if user exists
 	ifstream inputFile("managers.txt");
@@ -63,7 +97,7 @@ bool helperMethods::managerExists(string user, string pass, string mode) {
 				i = 0;
 			}
 			else if (i == 0) {
-				
+
 				//If on the username line
 				//cout << curLine << endl;
 				if (curLine == user) {
@@ -79,7 +113,7 @@ bool helperMethods::managerExists(string user, string pass, string mode) {
 						}
 					}
 					else {
-						
+
 						return true;
 					}
 				}
@@ -96,44 +130,52 @@ bool helperMethods::managerExists(string user, string pass, string mode) {
 	}
 	return false;
 }
-void helperMethods::deleteAccount(userAccount ua) {
+void helperMethods::deleteAccount(userAccount*
+	ua) {
 	//array to hold lines to ignore
-	string userLines[4] = { ua.getUsername(),
-		ua.getPassword(), ua.getAccountType(), to_string(ua.getAccountNumber()) };
+	string* userLines;
+	userLines = new string[4];
+	userLines[0] = ua->getUsername();
+	userLines[1] = ua->getPassword();
+	userLines[2] = ua->getAccountType();
+	userLines[3] = to_string(ua->getAccountNumber());
+
 	string curLine;
 	//creates temporary file, ignoring any lines found in userLines array
 	ifstream inputFile("users.txt");
-	ofstream tempFile("temp.txt");
+	ofstream outputFile("temp.txt");
 	curLine = "";
-	if (inputFile.is_open() && tempFile.is_open()) {
+	if (inputFile.is_open() && outputFile.is_open()) {
 		while (getline(inputFile, curLine)) {
 			bool found = false;
-			for (string s : userLines) {
-				found = true;
+			if (curLine == userLines[0]) {
+				found == true;
+				getline(inputFile, curLine);
+				getline(inputFile, curLine);
+				getline(inputFile, curLine);
+				getline(inputFile, curLine);
 			}
 
 			if (!found) {
-				tempFile << curLine << endl;
+				outputFile << curLine << endl;
 			}
 		}
 	}
-	//Frees userLines and closes files
-	delete userLines;
-	tempFile.close();
 	inputFile.close();
-	//Copies temporary file to users file, deleting the account in the process
-	ofstream outputFile("users.txt");
-	ifstream temp("temp.txt");
-	curLine = "";
-	if (outputFile.is_open() && tempFile.is_open()) {
-		while (getline(temp, curLine)) {
-			outputFile << curLine << endl;
-		}
-	}
 	outputFile.close();
-	temp.close();
+	//Frees userLines and closes files
+	//Copies temporary file to users file, deleting the account in the process
+	inputFile.open("temp.txt");
+	outputFile.open("users.txt");
+	curLine = "";
+	while (getline(inputFile, curLine)) {
+		outputFile << curLine << endl;
+	}
+
+	outputFile.close();
+	inputFile.close();
 	//Deletes temp file
-	remove("temp.txt");
+	//remove("temp.txt");
 }
 
 bool helperMethods::writeFile(userAccount ua) {
@@ -188,6 +230,37 @@ userAccount* helperMethods::loadInformation(string username, string password)
 
 }
 
+userAccount* helperMethods::loadInformation(int accNum)
+{
+	ifstream inputFile("users.txt");
+	string curLine;
+	//Attempts to read file line-by-line, seeing if the username from the object is in the file
+	if (inputFile.is_open()) {
+		while (getline(inputFile, curLine)) {
+			string username = curLine;
+			string pass;
+			getline(inputFile, pass);
+			string accType;
+			getline(inputFile, accType);
+			string nLine;
+			getline(inputFile, nLine);
+			int accNumber = stoi(nLine);
+
+			if (accNumber == accNum) {
+				return new userAccount(username, pass, accType, accNum);
+			}
+		}
+		//if user is not found in file
+		cout << "User not found!" << endl;
+		inputFile.close();
+	}
+	else {
+		cout << "Could not read users.txt!" << endl;
+	}
+	return nullptr;
+
+}
+
 void helperMethods::printManagerChoices(managerAccount* mgr) {
 	cout << "Please choose one of the following: " << endl;
 	cout << "1. Access User by Account Number" << endl;
@@ -196,18 +269,34 @@ void helperMethods::printManagerChoices(managerAccount* mgr) {
 	int selection;
 	cin >> selection;
 	string accName;
+	userAccount* ua;
 
 	switch (selection) {
 	case 1:
 		cout << "Enter the account number:";
 		int accNum;
 		cin >> accNum;
-		mgr->getUserInformation(accNum);
+		ua = mgr->getUserInformation(accNum);
+
+		if (ua != nullptr) {
+			mgr->managerPrintUserChoices(ua);
+		}
+		else {
+			cout << "User not found!" << endl;
+			printManagerChoices(mgr);
+		}
 		break;
 	case 2:
 		cout << "Enter the account username:";
 		cin >> accName;
-		mgr->getUserInformation(accName);
+		ua = mgr->getUserInformation(accName);
+		if (ua != nullptr) {
+			mgr->managerPrintUserChoices(ua);
+		}
+		else {
+			cout << "User not found!" << endl;
+			printManagerChoices(mgr);
+		}
 		break;
 	case 3:
 		back();

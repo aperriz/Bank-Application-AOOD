@@ -40,8 +40,10 @@ void MainClass::run() {
 			getline(inputFile, curLine);
 			int accNum = stoi(curLine);
 			accountList[accounts] = new account(user, pass, accType, accNum);
+			accounts++;
 		}
 	}
+	inputFile.close();
 	cout << "Welcome!" << endl;
 	cout << "Number of accounts in the system: " << accounts << endl;
 
@@ -62,7 +64,9 @@ void MainClass::run() {
 		exit(0);
 		break;
 	default:
+		system("cls");
 		cout << "Invalid selection" << endl;
+		run();
 		break;
 	}
 
