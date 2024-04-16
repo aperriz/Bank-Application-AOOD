@@ -156,7 +156,7 @@ void helperMethods::deleteAccount(userAccount*
 				getline(inputFile, curLine);
 			}
 
-			if (!found) {
+			if (!found && curLine != "") {
 				outputFile << curLine << endl;
 			}
 		}
