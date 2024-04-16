@@ -20,7 +20,7 @@ userAccount* accountList;
 
 int accounts;
 
-void mainClass::run() {
+void MainClass::run() {
 	accounts = 0;
 	//cout << "Main" << endl;
 	//Counts number of sets of 5 lines in file; 1 for each account
@@ -36,9 +36,9 @@ void mainClass::run() {
 			getline(inputFile, curLine);
 			string pass = curLine;
 			getline(inputFile, curLine);
-			int accNum = stoi(curLine);
-			getline(inputFile, curLine);
 			string accType = curLine;
+			getline(inputFile, curLine);
+			int accNum = stoi(curLine);
 			accountList[accounts] = new account(user, pass, accType, accNum);
 		}
 	}
@@ -177,7 +177,7 @@ void printUserChoices(userAccount* ua) {
 		printUserChoices(ua);
 		break;
 	case 4:
-		mainClass::logOut();
+		MainClass::logOut();
 		break;
 
 	default:
@@ -199,7 +199,7 @@ int printLoginOptions() {
 	return choice;
 }
 
-void mainClass::logOut() {
+void MainClass::logOut() {
 	delete loggedInAccount;
 	system("cls");
 	cout << "Welcome!" << endl;

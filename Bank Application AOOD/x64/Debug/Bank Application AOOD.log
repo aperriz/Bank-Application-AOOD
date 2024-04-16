@@ -1,1 +1,9 @@
-﻿  Bank Application AOOD.vcxproj -> C:\Users\alecp\Unity Projects\Game Design Final Project\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe
+﻿  MainClass.cpp
+C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
+  (compiling source file 'MainClass.cpp')
+  
+C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(13,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
+  (compiling source file 'MainClass.cpp')
+  
+C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\MainClass.cpp(233,15): warning C4101: 'tempUA': unreferenced local variable
+  Bank Application AOOD.vcxproj -> C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe

@@ -222,5 +222,5 @@ void helperMethods::printManagerChoices(managerAccount* mgr) {
 }
 
 static void back() {
-	mainClass::logOut();
+	MainClass::logOut();
 }

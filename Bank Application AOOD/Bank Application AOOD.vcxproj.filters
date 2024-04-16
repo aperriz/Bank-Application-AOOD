@@ -30,7 +30,7 @@
     <ClCompile Include="helperMethods.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mainClass.cpp">
+    <ClCompile Include="MainClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
