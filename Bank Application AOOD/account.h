@@ -5,10 +5,22 @@
 using namespace std;
 class account
 {
-protected:
+public:
+	account(string user, string pass, string accType, int accNum);
+	account();
+	~account();
+	string getUsername();
+	string getPassword();
+	string getAccountType();
+	int getAccountNumber();
+	void setUsername(string n);
+	void setPassword(string n);
+	void setAccountType(string n);
+	void setAccountNumber(int n);
+private:
 	int accountNumber;
 	string accountType;
 	string userName;
-	string password;
+	string password;	
 };
 

@@ -4,36 +4,18 @@
 #include <fstream>
 using namespace std;
 
-userAccount::userAccount() {
+userAccount::userAccount() : account("", "", "", NULL) {
 
 }
 
-userAccount::userAccount(string user, string pass, string accountType, int accountNumber) {
-	userName = user;
-	password = pass;
-	this->accountNumber = accountNumber;
-	this->accountType = accountType;
+userAccount::userAccount(string user, string pass, string accountType, int accountNumber) : 
+	account(user ,pass, accountType, accountNumber)
+{
 	balance = 0;
 }
 
 userAccount::~userAccount() {
 	cout << "User object deleted!" << endl;
-}
-
-string userAccount::getUsername() {
-	return userName;
-}
-
-string userAccount::getPassword() {
-	return password;
-}
-
-string userAccount::getAccountType() {
-	return accountType;
-}
-
-int userAccount::getAccountNumber() {
-	return accountNumber;
 }
 
 float userAccount::getBalance() {
@@ -42,7 +24,7 @@ float userAccount::getBalance() {
 
 void userAccount::PrintAccountSummary() {
 	//creates or reads text file
-	string fileName = userName + ".txt";
+	string fileName = getUsername() + ".txt";
 	ifstream inputFile(fileName);
 	string curLine;
 	string temp;
@@ -71,7 +53,7 @@ void userAccount::PrintAccountSummary() {
 }
 
 void userAccount::Deposit(int amount) {
-	string fileName = userName + ".txt";
+	string fileName = getUsername() + ".txt";
 	ifstream inputFile(fileName);
 	string curLine;
 	string temp;
@@ -112,7 +94,7 @@ void userAccount::Deposit(int amount) {
 }
 
 void userAccount::Withdraw(int amount) {
-	string fileName = userName + ".txt";
+	string fileName = getUsername() + ".txt";
 	ifstream inputFile(fileName);
 	string curLine;
 	string temp;
@@ -158,3 +140,9 @@ void userAccount::Withdraw(int amount) {
 	system("cls");
 }
 
+userAccount& userAccount::operator=(account* other)
+{
+	userAccount newAcc(other->getUsername(), other->getPassword(), other->getAccountType(), other->getAccountNumber());
+
+	return newAcc;
+}

@@ -130,7 +130,7 @@
     <ClCompile Include="account.cpp" />
     <ClCompile Include="RunFromHere.cpp" />
     <ClCompile Include="helperMethods.cpp" />
-    <ClCompile Include="MainClass.cpp" />
+    <ClCompile Include="mainClass.cpp" />
     <ClCompile Include="managerAccount.cpp" />
     <ClCompile Include="userAccount.cpp" />
   </ItemGroup>

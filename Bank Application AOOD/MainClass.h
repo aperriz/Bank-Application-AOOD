@@ -1,5 +1,5 @@
 #pragma once
-static class MainClass
+static class mainClass
 {
 public:
 	static void logOut();
