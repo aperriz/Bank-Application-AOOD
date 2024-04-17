@@ -1,9 +1,5 @@
 ﻿  helperMethods.cpp
-C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
-  (compiling source file 'helperMethods.cpp')
-  
-C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
-  (compiling source file 'helperMethods.cpp')
-  
-C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\Bank Application AOOD\helperMethods.cpp(152,11): warning C4553: '==': result of expression not used; did you intend '='?
-  Bank Application AOOD.vcxproj -> C:\Users\alecp\source\repos\Bank Application AOOD\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe
+\\fpsb\p\perraw08\GitHub\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
+\\fpsb\p\perraw08\GitHub\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
+\\fpsb\p\perraw08\GitHub\Bank-Application-AOOD\Bank Application AOOD\helperMethods.cpp(152,11): warning C4553: '==': result of expression not used; did you intend '='?
+  Bank Application AOOD.vcxproj -> \\fpsb\p\perraw08\GitHub\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe

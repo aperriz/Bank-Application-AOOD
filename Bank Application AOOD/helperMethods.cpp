@@ -182,7 +182,7 @@ bool helperMethods::writeFile(userAccount ua) {
 	ofstream outputFile("users.txt", ios::app);
 	//Checks if file is open
 	if (outputFile.is_open()) {
-		outputFile << ua.getUsername() << endl
+		outputFile << endl << ua.getUsername() << endl
 			<< ua.getPassword() << endl
 			<< ua.getAccountType() << endl
 			<< ua.getAccountNumber() << endl;
