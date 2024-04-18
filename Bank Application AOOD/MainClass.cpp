@@ -32,7 +32,7 @@ void MainClass::run() {
 		int i = 0;
 		int uIndex = 0;
 		while (getline(inputFile, curLine)) {
-			if (curLine == "") {
+			if (curLine.empty()) {
 				continue;
 			}
 			string user = curLine;
