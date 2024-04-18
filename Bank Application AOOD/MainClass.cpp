@@ -32,6 +32,9 @@ void MainClass::run() {
 		int i = 0;
 		int uIndex = 0;
 		while (getline(inputFile, curLine)) {
+			if (curLine == "") {
+				continue;
+			}
 			string user = curLine;
 			getline(inputFile, curLine);
 			string pass = curLine;
