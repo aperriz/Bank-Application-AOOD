@@ -1,19 +1,30 @@
 ﻿  account.cpp
   RunFromHere.cpp
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\RunFromHere.cpp(3,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
   helperMethods.cpp
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\helperMethods.cpp(152,11): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
+  (compiling source file 'RunFromHere.cpp')
+  
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\RunFromHere.cpp(3,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
+  (compiling source file 'helperMethods.cpp')
+  
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
+  (compiling source file 'helperMethods.cpp')
+  
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\helperMethods.cpp(152,11): warning C4553: '==': result of expression not used; did you intend '='?
   MainClass.cpp
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\MainClass.cpp(240,15): warning C4101: 'tempUA': unreferenced local variable
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
+  (compiling source file 'MainClass.cpp')
+  
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
+  (compiling source file 'MainClass.cpp')
+  
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.cpp(245,15): warning C4101: 'tempUA': unreferenced local variable
   managerAccount.cpp
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
+  (compiling source file 'managerAccount.cpp')
+  
   userAccount.cpp
   Generating Code...
-C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\Bank Application AOOD\userAccount.cpp(147): warning C4172: returning address of local variable or temporary: newAcc
-  LINK : C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\x64\Debug\Bank Application AOOD.exe not found or not built by the last incremental link; performing full link
-  Bank Application AOOD.vcxproj -> C:\Users\allcsr12\OneDrive - UWGB\ADVOOP\Bank-Application-AOOD-main\clone\x64\Debug\Bank Application AOOD.exe
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\userAccount.cpp(147,1): warning C4172: returning address of local variable or temporary: newAcc
+  Bank Application AOOD.vcxproj -> C:\Users\alecp\source\repos\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe

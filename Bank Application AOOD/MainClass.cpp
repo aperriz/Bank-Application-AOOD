@@ -160,39 +160,44 @@ void printUserChoices(userAccount* ua) {
 	cout << "4. Log out" << endl;
 
 	int selected;
-	cin >> selected;
-	switch (selected) {
-	case 1:
-		system("cls");
-		ua->PrintAccountSummary();
-		printUserChoices(ua);
-		break;
-	case 2:
-		system("cls");
-		cout << "How much would you like to withdraw?" << endl;
-		int amount;
-		cin >> amount;
-		ua->Withdraw(amount);
-		printUserChoices(ua);
-		break;
-	case 3:
-		system("cls");
-		cout << "How much would you like to deposit?" << endl;
-		cin >> amount;
-		ua->Deposit(amount);
-		system("cls");
-		printUserChoices(ua);
-		break;
-	case 4:
-		MainClass::logOut();
-		break;
+	try {
+		cin >> selected;
+		switch (selected) {
+		case 1:
+			system("cls");
+			ua->PrintAccountSummary();
+			printUserChoices(ua);
+			break;
+		case 2:
+			system("cls");
+			cout << "How much would you like to withdraw?" << endl;
+			int amount;
+			cin >> amount;
+			ua->Withdraw(amount);
+			printUserChoices(ua);
+			break;
+		case 3:
+			system("cls");
+			cout << "How much would you like to deposit?" << endl;
+			cin >> amount;
+			ua->Deposit(amount);
+			system("cls");
+			printUserChoices(ua);
+			break;
+		case 4:
+			MainClass::logOut();
+			break;
 
-	default:
-		cout << "Invalid selection" << endl;
-		break;
+		default:
+			cout << "Invalid selection" << endl;
+			break;
+		}
 	}
-
-
+	catch (exception e) {
+		cout << "Invalid input! " << endl;
+		printUserChoices(ua);
+	}
+	
 }
 
 int printLoginOptions() {

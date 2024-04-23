@@ -47,7 +47,13 @@ void managerAccount::managerPrintUserChoices(userAccount* ua) {
 	cout << "5. Delete Account" << endl;
 
 	int selected;
-	cin >> selected;
+	try {
+		cin >> selected;
+	}
+	catch (exception e) {
+		cout << "Invalid input!" << endl;
+		managerPrintUserChoices(ua);
+	}
 	switch (selected) {
 	case 1:
 		system("cls");
@@ -58,16 +64,28 @@ void managerAccount::managerPrintUserChoices(userAccount* ua) {
 		system("cls");
 		cout << "How much would you like to withdraw?" << endl;
 		int amount;
-		cin >> amount;
-		ua->Withdraw(amount);
+		try {
+
+			cin >> amount;
+			ua->Withdraw(amount);
+		}
+		catch(exception e){
+			cout << "Invalid input!" << endl;
+		}
 		managerPrintUserChoices(ua);
 		break;
 	case 3:
 		system("cls");
 		cout << "How much would you like to deposit?" << endl;
-		cin >> amount;
-		ua->Deposit(amount);
-		system("cls");
+		try {
+			cin >> amount;
+			ua->Deposit(amount);
+
+			system("cls");
+		}
+		catch (exception e) {
+			cout << "Invalid input!" << endl;
+		}
 		managerPrintUserChoices(ua);
 		break;
 	case 4:
@@ -84,6 +102,7 @@ void managerAccount::managerPrintUserChoices(userAccount* ua) {
 		break;
 	default:
 		cout << "Invalid selection" << endl;
+		managerPrintUserChoices(ua);
 		break;
 	}
 }

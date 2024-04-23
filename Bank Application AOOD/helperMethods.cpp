@@ -267,45 +267,52 @@ void helperMethods::printManagerChoices(managerAccount* mgr) {
 	cout << "2. Access User by Account Name" << endl;
 	cout << "3. Log out" << endl;
 	int selection;
-	cin >> selection;
-	string accName;
-	userAccount* ua;
+	try {
+		cin >> selection;
 
-	switch (selection) {
-	case 1:
-		cout << "Enter the account number:";
-		int accNum;
-		cin >> accNum;
-		ua = mgr->getUserInformation(accNum);
+		string accName;
+		userAccount* ua;
 
-		if (ua != nullptr) {
-			mgr->managerPrintUserChoices(ua);
-		}
-		else {
-			cout << "User not found!" << endl;
+		switch (selection) {
+		case 1:
+			cout << "Enter the account number:";
+			int accNum;
+			cin >> accNum;
+			ua = mgr->getUserInformation(accNum);
+
+			if (ua != nullptr) {
+				mgr->managerPrintUserChoices(ua);
+			}
+			else {
+				cout << "User not found!" << endl;
+				printManagerChoices(mgr);
+			}
+			break;
+		case 2:
+			cout << "Enter the account username:";
+			cin >> accName;
+			ua = mgr->getUserInformation(accName);
+			if (ua != nullptr) {
+				mgr->managerPrintUserChoices(ua);
+			}
+			else {
+				cout << "User not found!" << endl;
+				printManagerChoices(mgr);
+			}
+			break;
+		case 3:
+			back();
+			break;
+		default:
+			system("cls");
+			cout << "Invalid selection!" << endl;
 			printManagerChoices(mgr);
+			break;
 		}
-		break;
-	case 2:
-		cout << "Enter the account username:";
-		cin >> accName;
-		ua = mgr->getUserInformation(accName);
-		if (ua != nullptr) {
-			mgr->managerPrintUserChoices(ua);
-		}
-		else {
-			cout << "User not found!" << endl;
-			printManagerChoices(mgr);
-		}
-		break;
-	case 3:
-		back();
-		break;
-	default:
-		system("cls");
-		cout << "Invalid selection!" << endl;
+	}
+	catch (exception e) {
+		cout << "Invalid input" << endl;
 		printManagerChoices(mgr);
-		break;
 	}
 
 }
