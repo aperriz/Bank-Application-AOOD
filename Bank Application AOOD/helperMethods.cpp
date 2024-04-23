@@ -277,14 +277,20 @@ void helperMethods::printManagerChoices(managerAccount* mgr) {
 		case 1:
 			cout << "Enter the account number:";
 			int accNum;
-			cin >> accNum;
-			ua = mgr->getUserInformation(accNum);
+			try {
 
-			if (ua != nullptr) {
-				mgr->managerPrintUserChoices(ua);
+				cin >> accNum;
+				ua = mgr->getUserInformation(accNum);
+
+				if (ua != nullptr) {
+					mgr->managerPrintUserChoices(ua);
+				}
+				else {
+					cout << "User not found!" << endl;
+					printManagerChoices(mgr);
+				}
 			}
-			else {
-				cout << "User not found!" << endl;
+			catch(exception e) {
 				printManagerChoices(mgr);
 			}
 			break;
