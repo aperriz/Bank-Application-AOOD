@@ -8,6 +8,7 @@ class account
 public:
 	account(string user, string pass, string accType, int accNum);
 	account();
+	account(account* other);
 	~account();
 	string getUsername();
 	string getPassword();

@@ -4,6 +4,13 @@ account::account() {
 	password = "";
 }
 
+account::account(account* other) {
+	this->userName = other->userName;
+	this->password = other->password;
+	this->accountType = other->accountType;
+	this->accountNumber = other->accountNumber;
+}
+
 string account::getUsername() {
 	return userName;
 }
