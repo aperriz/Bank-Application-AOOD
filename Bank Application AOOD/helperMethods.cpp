@@ -268,6 +268,7 @@ void helperMethods::printManagerChoices(managerAccount* mgr) {
 	cout << "3. Log out" << endl;
 	int selection;
 	try {
+
 		cin >> selection;
 
 		string accName;
@@ -286,7 +287,9 @@ void helperMethods::printManagerChoices(managerAccount* mgr) {
 					mgr->managerPrintUserChoices(ua);
 				}
 				else {
+					system("cls");
 					cout << "User not found!" << endl;
+					selection = NULL;
 					printManagerChoices(mgr);
 				}
 			}
@@ -302,7 +305,9 @@ void helperMethods::printManagerChoices(managerAccount* mgr) {
 				mgr->managerPrintUserChoices(ua);
 			}
 			else {
+				system("cls");
 				cout << "User not found!" << endl;
+				selection = NULL;
 				printManagerChoices(mgr);
 			}
 			break;
@@ -313,11 +318,16 @@ void helperMethods::printManagerChoices(managerAccount* mgr) {
 			system("cls");
 			cout << "Invalid selection!" << endl;
 			printManagerChoices(mgr);
+			cin.clear();
+			cin.ignore();
 			break;
 		}
 	}
 	catch (exception e) {
 		cout << "Invalid input" << endl;
+		selection = NULL;
+		cin.clear();
+		cin.ignore();
 		printManagerChoices(mgr);
 	}
 

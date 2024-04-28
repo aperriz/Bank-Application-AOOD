@@ -57,12 +57,8 @@ void userAccount::Deposit(int amount) {
 	ifstream inputFile(fileName);
 	string curLine;
 	string temp;
-
-
 	int index = 0;
 	int balance = 0;
-
-
 	getline(inputFile, curLine);
 	do {
 		if (curLine != "") {

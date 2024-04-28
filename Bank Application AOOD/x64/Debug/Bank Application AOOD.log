@@ -1,30 +1,9 @@
-﻿  account.cpp
-  RunFromHere.cpp
-  helperMethods.cpp
-C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
-  (compiling source file 'RunFromHere.cpp')
-  
-C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\RunFromHere.cpp(3,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
-  (compiling source file 'helperMethods.cpp')
-  
-C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
-  (compiling source file 'helperMethods.cpp')
-  
-C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\helperMethods.cpp(152,11): warning C4553: '==': result of expression not used; did you intend '='?
-  MainClass.cpp
+﻿  MainClass.cpp
 C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.h(7,2): warning C4091: 'static ': ignored on left of 'MainClass' when no variable is declared
   (compiling source file 'MainClass.cpp')
   
 C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
   (compiling source file 'MainClass.cpp')
   
-C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.cpp(245,15): warning C4101: 'tempUA': unreferenced local variable
-  managerAccount.cpp
-C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\helperMethods.h(15,2): warning C4091: 'static ': ignored on left of 'helperMethods' when no variable is declared
-  (compiling source file 'managerAccount.cpp')
-  
-  userAccount.cpp
-  Generating Code...
-C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\userAccount.cpp(147,1): warning C4172: returning address of local variable or temporary: newAcc
+C:\Users\alecp\source\repos\Bank-Application-AOOD\Bank Application AOOD\MainClass.cpp(271,15): warning C4101: 'tempUA': unreferenced local variable
   Bank Application AOOD.vcxproj -> C:\Users\alecp\source\repos\Bank-Application-AOOD\x64\Debug\Bank Application AOOD.exe

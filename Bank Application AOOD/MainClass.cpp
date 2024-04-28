@@ -12,15 +12,16 @@ userAccount* userLogin(string username, string password);
 void static createAccount(string username, string password, string accountType, int accountNumber);
 void printUserChoices(userAccount* ua);
 void getLogin();
-int printLoginOptions();
+int* printLoginOptions();
 void createAccountDialog();
 void createMangagerDialog();
 userAccount* loggedInAccount;
-userAccount* accountList;
+//userAccount* accountList;
 
 int accounts;
+int testVar = 0;
 
-void MainClass::run() {
+int MainClass::run() {
 	accounts = 0;
 	//cout << "Main" << endl;
 	//Counts number of sets of 5 lines in file; 1 for each account
@@ -42,7 +43,7 @@ void MainClass::run() {
 			string accType = curLine;
 			getline(inputFile, curLine);
 			int accNum = stoi(curLine);
-			accountList[accounts] = new account(user, pass, accType, accNum);
+			/*accountList[accounts] = new account(user, pass, accType, accNum);*/
 			accounts++;
 		}
 	}
@@ -50,7 +51,9 @@ void MainClass::run() {
 	cout << "Welcome!" << endl;
 	cout << "Number of accounts in the system: " << accounts << endl;
 
-	switch (printLoginOptions()) {
+	int* choice = printLoginOptions();
+
+	switch (*choice) {
 	case 1:
 		system("cls");
 		getLogin();
@@ -69,10 +72,12 @@ void MainClass::run() {
 	default:
 		system("cls");
 		cout << "Invalid selection" << endl;
-		run();
+		cin.clear();
+		cin.ignore();
+		return run();
 		break;
 	}
-
+	return 0;
 }
 
 void createAccountDialog() {
@@ -147,6 +152,8 @@ void getLogin() {
 		system("cls");
 		cout << "Incorrect username or password!" << endl;
 		getLogin();
+		cin.clear();
+		cin.ignore();
 	}
 
 }
@@ -189,26 +196,45 @@ void printUserChoices(userAccount* ua) {
 			break;
 
 		default:
+			system("cls");
 			cout << "Invalid selection" << endl;
+			cin.clear();
+			cin.ignore();
+			printUserChoices(ua);
 			break;
 		}
 	}
 	catch (exception e) {
 		cout << "Invalid input! " << endl;
+		cin.clear();
+		cin.ignore();
 		printUserChoices(ua);
 	}
-	
+
 }
 
-int printLoginOptions() {
-	int choice;
+int* printLoginOptions() {
+	int* choice = new int();
+
+	//cout << *choice << endl;
 	cout << "Please choose one of the below:" << endl;
 	cout << "1. User Login" << endl;
 	cout << "2. Create Account" << endl;
 	cout << "3. Manager Login" << endl;
 	cout << "4. Exit" << endl;
-	cin >> choice;
-	return choice;
+	try {
+		cin >> *choice;
+		return choice;
+	}
+	catch (exception e) {
+		system("cls");
+		cout << "Invalid selection!" << endl;
+		cin.clear();
+		cin.ignore();
+		return printLoginOptions();
+	}
+	cout << "No" << endl;
+	return 0;
 }
 
 void MainClass::logOut() {
@@ -217,7 +243,7 @@ void MainClass::logOut() {
 	cout << "Welcome!" << endl;
 	cout << "Number of accounts in the system: " << accounts << endl;
 
-	switch (printLoginOptions()) {
+	switch (*printLoginOptions()) {
 	case 1:
 		system("cls");
 		getLogin();

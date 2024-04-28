@@ -3,6 +3,6 @@ static class MainClass
 {
 public:
 	static void logOut();
-	static void run();
+	static int run();
 };
 

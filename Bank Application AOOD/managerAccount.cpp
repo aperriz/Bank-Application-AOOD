@@ -52,6 +52,9 @@ void managerAccount::managerPrintUserChoices(userAccount* ua) {
 	}
 	catch (exception e) {
 		cout << "Invalid input!" << endl;
+		selected = NULL;
+		cin.clear();
+		cin.ignore();
 		managerPrintUserChoices(ua);
 	}
 	switch (selected) {
@@ -71,6 +74,8 @@ void managerAccount::managerPrintUserChoices(userAccount* ua) {
 		}
 		catch(exception e){
 			cout << "Invalid input!" << endl;
+			cin.clear();
+			cin.ignore();
 		}
 		managerPrintUserChoices(ua);
 		break;
@@ -85,6 +90,8 @@ void managerAccount::managerPrintUserChoices(userAccount* ua) {
 		}
 		catch (exception e) {
 			cout << "Invalid input!" << endl;
+			cin.clear();
+			cin.ignore();
 		}
 		managerPrintUserChoices(ua);
 		break;
@@ -102,6 +109,7 @@ void managerAccount::managerPrintUserChoices(userAccount* ua) {
 		break;
 	default:
 		cout << "Invalid selection" << endl;
+		choice = NULL;
 		managerPrintUserChoices(ua);
 		break;
 	}
