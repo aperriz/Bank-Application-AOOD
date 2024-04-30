@@ -18,6 +18,7 @@ public:
 	void setPassword(string n);
 	void setAccountType(string n);
 	void setAccountNumber(int n);
+	static account* loggedInAccount;
 private:
 	int accountNumber;
 	string accountType;

@@ -1,8 +1,11 @@
 #include "account.h"
+
 account::account() {
 	userName = "";
 	password = "";
 }
+
+account* account::loggedInAccount;
 
 account::account(account* other) {
 	this->userName = other->userName;

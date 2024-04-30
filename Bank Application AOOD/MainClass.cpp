@@ -15,7 +15,6 @@ void getLogin();
 int* printLoginOptions();
 void createAccountDialog();
 void createMangagerDialog();
-userAccount* loggedInAccount;
 //userAccount* accountList;
 
 int accounts;
@@ -146,6 +145,7 @@ void getLogin() {
 		//Clears console and prints choices
 		system("cls");
 		printUserChoices(userLogin(user, pass));
+		account::loggedInAccount = userLogin(user, pass);
 	}
 	else {
 		//Clears console and prompts new input
@@ -238,7 +238,7 @@ int* printLoginOptions() {
 }
 
 void MainClass::logOut() {
-	delete loggedInAccount;
+	account::loggedInAccount = NULL;
 	system("cls");
 	cout << "Welcome!" << endl;
 	cout << "Number of accounts in the system: " << accounts << endl;
